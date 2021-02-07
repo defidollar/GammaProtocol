@@ -165,7 +165,7 @@ contract('Opeth', ([accountOwner1, accountOwner2]) => {
     const scaledOptionsAmount = createTokenAmount(optionsAmount, 8)
     before('accountOwner2 mints the put option, sends it to accountOwner1.', async () => {
       const collateralToMintLong = strike * optionsAmount
-      const scaledCollateralToMintLong = createTokenAmount(collateralToMintLong, usdcDecimals)
+      const scaledCollateralToMint = createTokenAmount(collateralToMintLong, usdcDecimals)
 
       const actionArgsAccountOwner2 = [
         {
@@ -194,7 +194,7 @@ contract('Opeth', ([accountOwner1, accountOwner2]) => {
           secondAddress: accountOwner2,
           asset: usdc.address,
           vaultId: vaultCounter2,
-          amount: scaledCollateralToMintLong,
+          amount: scaledCollateralToMint,
           index: '0',
           data: ZERO_ADDR,
         },
